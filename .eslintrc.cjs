@@ -23,5 +23,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
-  rules: { 'vue/multi-word-component-names': 0 }
+  rules: {
+    'vue/multi-word-component-names': 0,
+    'quotes': ['error', 'single', { 'allowTemplateLiterals': true }],
+    'vue/html-quotes': ['error', 'single'],
+  }
 }

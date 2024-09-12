@@ -12,8 +12,8 @@ const props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <router-link :to="props.to">
-    <img :src="props.type === 'default' ? '' : ''" :alt="props.alt"/>
+  <router-link :to='props.to'>
+    <img :src='props.type === "default" ? "" : ""' :alt='props.alt'/>
   </router-link>
 </template>
 

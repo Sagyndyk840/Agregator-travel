@@ -1,0 +1,69 @@
+
+.s-spinner {
+  text-align: center;
+
+  .s-clip {
+    -webkit-animation: v-clipDelay 0.75s 0s infinite linear;
+    animation: v-clipDelay 0.75s 0s infinite linear;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    display: inline-block;
+
+    &-size {
+      &-small {
+        width: 10px;
+        height: 11px;
+      }
+      &-large {
+        width: 15px;
+        height: 14px;
+      }
+
+      &-medium {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+
+}
+
+@-webkit-keyframes v-clipDelay
+{
+  0%
+  {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  50%
+  {
+    -webkit-transform: rotate(180deg) scale(0.8);
+    transform: rotate(180deg) scale(0.8);
+  }
+  100%
+  {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes v-clipDelay
+{
+  0%
+  {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  50%
+  {
+    -webkit-transform: rotate(180deg) scale(0.8);
+    transform: rotate(180deg) scale(0.8);
+  }
+  100%
+  {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}

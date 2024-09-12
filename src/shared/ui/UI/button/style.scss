@@ -1,0 +1,48 @@
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  transition: .3s all ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  &-size {
+    &-small {
+      padding-top: 7.5px;
+      padding-bottom: 7.5px;
+    }
+    &-medium {
+      padding-top: 11.5px;
+      padding-bottom: 11.5px;
+    }
+    &-large {
+      padding-top: 15.5px;
+      padding-bottom: 15.5px;
+    }
+  }
+}
+
+.block {
+  width: 100% !important;
+}
+
+.outlined {
+  background-color: transparent !important;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  color: #8F8C91 !important;
+
+
+  &-filled {
+    background-color: #D2D1D3 !important;
+  }
+
+  &-outlined {
+    border: 1px solid #D2D1D3 !important;
+  }
+}

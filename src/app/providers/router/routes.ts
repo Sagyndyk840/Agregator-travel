@@ -1,5 +1,5 @@
-import type {RouteRecordRaw} from "vue-router";
-import {DefaultLayout} from "@/app/layouts";
+import type {RouteRecordRaw} from 'vue-router';
+import {DefaultLayout} from '@/app/layouts';
 
 export const routes : readonly RouteRecordRaw[] = [
     {

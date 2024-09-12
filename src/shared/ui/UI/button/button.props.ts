@@ -1,26 +1,26 @@
 export default interface ButtonProps {
-    type: BtnType,
-    label: string,
-    align: BtnAlign,
-    outlined: boolean,
-    color:  string,
-    textColor: string,
-    block: boolean,
-    disabled: boolean,
-    loading: boolean,
-    iconLeft?: string,
-    iconRight?: string,
-    icon?: string,
-    to?: string,
-    width?: string,
+    type: BtnType, // success
+    label: string, // success
+    size: BtnSize, // success
+    outlined: boolean, // success
+    color:  string, // success
+    textColor: string, // success
+    block: boolean, // success
+    disabled: boolean, // success
+    loading: boolean, // success
+    iconLeft?: string, // test
+    iconRight?: string, // test
+    icon?: string, // test
+    to?: string, // success
+    width?: string, // success
 }
 
 type BtnType =
-    | "button"
-    | "submit"
-    | "reset";
+    | 'button'
+    | 'submit'
+    | 'reset';
 
-type BtnAlign =
-    | "center"
-    | "left"
-    | "right";
+type BtnSize =
+    | 'small'
+    | 'medium'
+    | 'large'
