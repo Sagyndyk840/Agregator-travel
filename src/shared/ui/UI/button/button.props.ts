@@ -13,6 +13,7 @@ export default interface ButtonProps {
     icon?: string, // test
     to?: string, // success
     width?: string, // success
+    flat: boolean, // process
 }
 
 type BtnType =

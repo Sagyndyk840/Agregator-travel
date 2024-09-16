@@ -7,7 +7,7 @@ export const routes : readonly RouteRecordRaw[] = [
         component: DefaultLayout,
         children: [
             {
-                path: 'home',
+                path: '',
                 component: () => import('@/pages/home'),
                 name: 'HomePage',
             }

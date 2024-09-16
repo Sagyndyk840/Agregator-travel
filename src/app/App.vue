@@ -1,11 +1,8 @@
 <script setup lang='ts'>
-import Button from '@/shared/ui/UI/button/Button.vue'
 </script>
 
 <template>
-  <div class='wrapper'>
-    <Button label='Button' size='medium' outlined />
-  </div>
+  <router-view></router-view>
 </template>
 
 <style lang='scss' scoped>

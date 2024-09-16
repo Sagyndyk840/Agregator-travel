@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   loading: false,
   to: 'button',
   size: 'small',
+  flat: false,
 })
 
 const click = (): void => {
@@ -39,6 +40,7 @@ const click = (): void => {
           props.disabled ? `disabled-${props.outlined ? "outlined" : "filled"}` : "",
           {
             "outlined": props.outlined,
+            "flat": props.flat,
             "disabled": props.disabled,
           }
         ]'

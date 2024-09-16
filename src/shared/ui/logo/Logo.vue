@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 const props = withDefaults(defineProps<{
-  type: 'default' | 'dark',
   alt: string,
   to: object | string,
 }>(), {
@@ -13,7 +12,7 @@ const props = withDefaults(defineProps<{
 
 <template>
   <router-link :to='props.to'>
-    <img :src='props.type === "default" ? "" : ""' :alt='props.alt'/>
+    <img src='@/shared/assets/images/logo.png' :alt='props.alt'/>
   </router-link>
 </template>
 
