@@ -28,11 +28,11 @@ const click = (): void => {
 <template>
   <div>
     <component
-        :is='props.to === "button" ? "button" : "router-link"' :to='props.to'
-        :disabled='props.disabled'
-        @click='click'
-        :type='props.type'
-        class='btn'
+        :is="props.to === 'button' ? 'button' : 'router-link'" :to="props.to"
+        :disabled="props.disabled"
+        @click="click"
+        :type="props.type"
+        class="btn"
         :class='[
           props.to ? "display-inline-block" : "flex",
           !props.icon ? `btn-size-${props.size}` : `icon-${props.size}`,
@@ -59,25 +59,25 @@ const click = (): void => {
           }
         ]'
     >
-      <div class='loader flex align-center justify-center' v-if='props.loading'>
+      <div class="loader flex align-center justify-center" v-if="props.loading">
         <slot name='loader'>
-          <Loader :size='props.size' :color='props.color' :loading='props.loading' />
+          <Loader :size="props.size" :color="props.color" :loading="props.loading" />
         </slot>
       </div>
-      <div v-else class='flex align-center justify-center'>
-        <div v-if='props.icon'>
-          <slot name='icon'></slot>
+      <div v-else class="flex align-center justify-center">
+        <div v-if="props.icon">
+          <slot name="icon"></slot>
         </div>
         <div v-else>
           <div v-if='!icon || !$slots["icon-left"]' class='flex align-center justify-center icon'>
             <div style='padding-right: 4px;' v-if='$slots["icon-left"] || props.iconLeft' class='flex align-center justify-center icon-slot icon-slot-left'>
-              <slot name='icon-left'></slot>
+              <slot name="icon-left"></slot>
             </div>
-            <slot :class='props.textColor' name='label'>
+            <slot :class="props.textColor" name="label">
               {{ props.label }}
             </slot>
             <div style='padding-left: 4px;' v-if='$slots["icon-right"] || props.iconRight' class='flex align-center justify-center icon-slot icon-slot-right'>
-              <slot name='icon-right'></slot>
+              <slot name="icon-right"></slot>
             </div>
           </div>
         </div>

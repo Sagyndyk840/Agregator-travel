@@ -21,10 +21,10 @@ const spinnerStyle = computed(() => {
 </script>
 
 <template>
-  <div class='s-spinner' v-show='props.loading'>
-    <div class='s-clip' :class='[
+  <div class="s-spinner" v-show="props.loading">
+    <div class="s-clip" :class="[
         `s-clip-size-${props.size}`
-    ]' :style='spinnerStyle'>
+    ]" :style="spinnerStyle">
     </div>
   </div>
 </template>
