@@ -14,14 +14,21 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 ul,ol,li {
   list-style: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 a {
   text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+p, span {
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {

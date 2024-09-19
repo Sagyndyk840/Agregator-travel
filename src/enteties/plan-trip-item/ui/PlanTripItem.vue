@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<{
 </script>
 
 <template>
-  <div class="plan-trip__item">
+  <div class="plan-trip__item flex items-center">
     <div class="plan-trip__item--left">
       <img :src="props.img" :alt="props.title">
     </div>

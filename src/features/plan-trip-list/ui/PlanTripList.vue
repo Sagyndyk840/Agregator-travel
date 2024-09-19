@@ -5,13 +5,59 @@ import PlanTripItem from '@/enteties/plan-trip-item'
 let data = [
   {
     title: 'Istanbul, Turkey',
-    img: '',
+    img: '@/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
       'Resorts',
     ]
   },
+  {
+    title: 'Istanbul, Turkey',
+    img: '@/shared/assets/images/image.png',
+    tags: [
+      'Flights',
+      'Hotels',
+      'Resorts',
+    ]
+  },
+  {
+    title: 'Istanbul, Turkey',
+    img: '@/shared/assets/images/image.png',
+    tags: [
+      'Flights',
+      'Hotels',
+      'Resorts',
+    ]
+  },
+  {
+    title: 'Istanbul, Turkey',
+    img: '@/shared/assets/images/image.png',
+    tags: [
+      'Flights',
+      'Hotels',
+      'Resorts',
+    ]
+  },
+  {
+    title: 'Istanbul, Turkey',
+    img: '@/shared/assets/images/image.png',
+    tags: [
+      'Flights',
+      'Hotels',
+      'Resorts',
+    ]
+  },
+  {
+    title: 'Istanbul, Turkey',
+    img: '@/shared/assets/images/image.png',
+    tags: [
+      'Flights',
+      'Hotels',
+      'Resorts',
+    ]
+  },
+
 ]
 
 </script>

@@ -1,0 +1,20 @@
+.plan-trip {
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  &__top {
+    margin-bottom: 40px;
+    &--title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: 32px;
+      color: #000;
+      margin-bottom: 16px;
+    }
+    &--subtitle {
+      font-weight: 400;
+      font-size: 16px;
+      color: #121;
+    }
+  }
+}
