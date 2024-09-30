@@ -1,0 +1,33 @@
+.service-card__item {
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: 560px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  box-shadow: 0 4px 16px 0 rgba(17, 34, 17, 0.05);
+  &--title {
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    font-family: 'TradeGothic LT Extended', sans-serif;
+  }
+
+  &--description {
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 8px;
+  }
+
+  &--button {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+}

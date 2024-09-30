@@ -12,10 +12,10 @@ import PlanTripList from '@/features/plan-trip-list'
           <div class="plan-trip__top--title">Plan your perfect trip</div>
           <div class="plan-trip__top--subtitle">Search Flights & Places Hire to our most popular destinations</div>
         </div>
-        <Button label="See more places" outlined />
+        <Button label="See more places" color="#8DD3BB" text-color="#112211" outlined />
       </div>
       <div class="plan-trip__bottom">
-        <PlanTripList />
+        <PlanTripList/>
       </div>
     </div>
   </div>

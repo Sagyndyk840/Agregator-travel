@@ -14,7 +14,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   block: false,
   disabled: false,
   loading: false,
-  to: 'button',
   size: 'small',
   flat: false,
 })
@@ -28,7 +27,7 @@ const click = (): void => {
 <template>
   <div>
     <component
-        :is="props.to === 'button' ? 'button' : 'router-link'" :to="props.to"
+        :is="props.to ? 'router-link' : 'button'" :to="props.to"
         :disabled="props.disabled"
         @click="click"
         :type="props.type"

@@ -11,7 +11,7 @@ export default interface ButtonProps {
     iconLeft?: string, // test
     iconRight?: string, // test
     icon?: string, // test
-    to?: string, // success
+    to?: object, // success
     width?: string, // success
     flat: boolean, // process
 }

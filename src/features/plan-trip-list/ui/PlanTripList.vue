@@ -5,7 +5,7 @@ import PlanTripItem from '@/enteties/plan-trip-item'
 let data = [
   {
     title: 'Istanbul, Turkey',
-    img: '@/shared/assets/images/image.png',
+    img: 'src/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
@@ -14,7 +14,7 @@ let data = [
   },
   {
     title: 'Istanbul, Turkey',
-    img: '@/shared/assets/images/image.png',
+    img: 'src/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
@@ -23,7 +23,7 @@ let data = [
   },
   {
     title: 'Istanbul, Turkey',
-    img: '@/shared/assets/images/image.png',
+    img: 'src/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
@@ -32,7 +32,7 @@ let data = [
   },
   {
     title: 'Istanbul, Turkey',
-    img: '@/shared/assets/images/image.png',
+    img: 'src/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
@@ -41,7 +41,7 @@ let data = [
   },
   {
     title: 'Istanbul, Turkey',
-    img: '@/shared/assets/images/image.png',
+    img: 'src/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
@@ -50,7 +50,7 @@ let data = [
   },
   {
     title: 'Istanbul, Turkey',
-    img: '@/shared/assets/images/image.png',
+    img: 'src/shared/assets/images/image.png',
     tags: [
       'Flights',
       'Hotels',
