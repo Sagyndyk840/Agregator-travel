@@ -7,10 +7,10 @@ import PlanTripList from '@/features/plan-trip-list'
 <template>
   <div class="plan-trip">
     <div class="container">
-      <div class="plan-trip__top flex justify-between items-center">
+      <div class="plan-trip__top top flex justify-between items-center">
         <div class="flex flex-col">
-          <div class="plan-trip__top--title">Plan your perfect trip</div>
-          <div class="plan-trip__top--subtitle">Search Flights & Places Hire to our most popular destinations</div>
+          <div class="plan-trip__top--title top--title">Plan your perfect trip</div>
+          <div class="plan-trip__top--subtitle top--subtitle">Search Flights & Places Hire to our most popular destinations</div>
         </div>
         <Button label="See more places" color="#8DD3BB" text-color="#112211" outlined />
       </div>
