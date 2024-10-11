@@ -4,6 +4,7 @@ import PlanTrip from '@/widgets/plan-trip'
 import ServiceCard from '@/widgets/service-card'
 import Review from '@/widgets/review'
 import Footer from '@/widgets/footer/Footer.vue'
+import Select from '@/shared/ui/UI/select/Select.vue'
 </script>
 
 <template>
@@ -11,6 +12,9 @@ import Footer from '@/widgets/footer/Footer.vue'
   <PlanTrip />
   <ServiceCard />
   <Review />
+
+  <Select/>
+
   <Footer />
 </template>
 
