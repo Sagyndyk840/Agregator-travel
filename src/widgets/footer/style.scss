@@ -2,6 +2,7 @@
   background: var(--mint-green);
   padding-bottom: 64px;
   padding-top: 218px;
+  margin-top: 300px;
   &-inner {
     display: flex;
     justify-content: space-between;
@@ -53,4 +54,8 @@
       }
     }
   }
+}
+
+.wrapper-footer {
+  position: relative;
 }

@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import HeroSection from '@/widgets/home/hero-section'
-import PlanTrip from '@/widgets/plan-trip'
-import ServiceCard from '@/widgets/service-card'
-import Review from '@/widgets/review'
+import PlanTrip from '@/widgets/home/plan-trip'
+import ServiceCard from '@/widgets/home/service-card'
+import Review from '@/widgets/home/review'
 import Footer from '@/widgets/footer/Footer.vue'
-import Select from '@/shared/ui/UI/select/Select.vue'
 </script>
 
 <template>
@@ -12,9 +11,6 @@ import Select from '@/shared/ui/UI/select/Select.vue'
   <PlanTrip />
   <ServiceCard />
   <Review />
-
-  <Select/>
-
   <Footer />
 </template>
 
