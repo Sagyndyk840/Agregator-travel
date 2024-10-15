@@ -5,6 +5,7 @@ export default interface UIInputProps {
     icon: string,
     block: boolean,
     filled: boolean,
+    outlined: boolean,
     color: string,
     textColor: string,
     type: UIInputType,

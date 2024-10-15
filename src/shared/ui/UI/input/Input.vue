@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<UIInputProps>(), {
 
 <template>
   <div>
-    <input />
+    <input class="input" />
   </div>
 </template>
 
