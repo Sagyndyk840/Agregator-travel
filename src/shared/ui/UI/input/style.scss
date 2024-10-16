@@ -1,11 +1,233 @@
+$color-default: #79747e;
+$animation-speed: .2s;
+$color-focused: var(--mint-green);
+$color-error: #fd736e;
+$color-disabled: rgba(28, 27, 31, 0.12);
 .input {
 
+  &.outlined {
+    .input-container {
+      position: relative;
+      padding-top: 6px;
+      font-size: 16px;
+      font-weight: 400;
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 14px;
+        font-size: 14px;
+        line-height: inherit;
+        border-style: solid;
+        color: $color-default;
+        border-width: 1px;
+        border-color: transparent $color-default $color-default;
+        border-radius: 4px;
+        background-color: transparent;
+        transition: border $animation-speed, box-shadow $animation-speed;
+
+        &:not(:focus):placeholder-shown {
+          border-top-color: $color-default;
+        }
+
+        // Label
+        + label {
+          display: flex;
+          width: 100%;
+          max-height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 14px;
+          line-height: 15px;
+          color: $color-default;
+          cursor: text;
+          transition: color $animation-speed,
+          font-size $animation-speed,
+          line-height $animation-speed;
+        }
+
+        &:not(:focus):placeholder-shown + label {
+          font-size: 14px;
+          line-height: 64px;
+        }
+
+        // Corners
+        + label::before,
+        + label::after {
+          content: "";
+          display: block;
+          box-sizing: border-box;
+          height: 8px;
+          min-width: 10px;
+          margin-top: 6px;
+          border-top: solid 1px $color-default;
+          pointer-events: none;
+          box-shadow: inset 0 1px transparent;
+          transition: border $animation-speed;
+        }
+
+        + label::before {
+          margin-right: 4px;
+          border-left: solid 1px transparent;
+          border-radius: 4px 0;
+        }
+
+        + label::after {
+          flex-grow: 1;
+          margin-left: 4px;
+          border-right: solid 1px transparent;
+          border-radius: 0 4px;
+        }
+
+        &:not(:focus):placeholder-shown + label::before,
+        &:not(:focus):placeholder-shown + label::after {
+          border-top-color: transparent;
+        }
+
+        // Focus
+        &:focus {
+          border-color: transparent $color-focused $color-focused;
+          outline: none;
+        }
+
+        &:focus + label {
+          color: $color-focused;
+        }
+
+        &:focus + label::before,
+        &:focus + label::after {
+          border-top-color: $color-focused;
+        }
+
+        &:disabled,
+        &:disabled + label {
+          color: $color-disabled;
+          border-color: transparent $color-disabled $color-disabled;
+          cursor: not-allowed;
+        }
+
+        &:disabled + label::before,
+        &:disabled + label::after {
+          border-top-color: $color-disabled;
+        }
+
+        &:disabled:placeholder-shown,
+        &:disabled:placeholder-shown + label {
+          border-top-color: $color-disabled;
+        }
+
+        &:disabled:placeholder-shown + label::before,
+        &:disabled:placeholder-shown + label::after {
+          border-top-color: transparent;
+        }
+      }
+    }
+  }
+
+  &.filled {
+    input {
+      background: var(--neutrals);
+      border-radius: 4px;
+      padding: 8px 16px 8px 16px;
+      font-family: var(--font-family), serif;
+      font-weight: 400;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      height: 56px;
+      color: #1c1b1f;
+
+      &::placeholder {
+        color: #1c1b1f;
+      }
+    }
+
+    label {
+      display: none;
+    }
+  }
+
+  &-error {
+    label {
+      color: $color-error !important;
+    }
+    input,
+    textarea {
+      border-color: transparent $color-error $color-error !important;
+
+      // Label
+      + label {
+        color: red;
+      }
+
+      + label::before,
+      + label::after {
+        border-top-color: $color-error !important;
+      }
+
+      // Placeholder
+      &:not(:focus):placeholder-shown,
+      &:not(:focus):placeholder-shown + label {
+        border-top-color: $color-error !important;
+        color: $color-error !important;
+      }
+
+      &:not(:focus):placeholder-shown + label::before,
+      &:not(:focus):placeholder-shown + label::after {
+        border-top-color: transparent;
+      }
+
+      // Focused
+      &:focus {
+        border-color: transparent $color-error  $color-error !important;
+      }
+
+      &:focus + label {
+        color: $color-error !important;
+      }
+
+      &:focus + label::before,
+      &:focus + label::after {
+        border-top-color: $color-error !important;
+      }
+    }
+  }
+
+  &-disabled {
+    border: 1px solid rgba(121, 116, 126, 0.12);
+    input {
+      color: #1c1b1f;
+      opacity: 0.38;
+      pointer-events: none;
+    }
+
+    label {
+      color: #1c1b1f;
+      background: white;
+      opacity: 0.38;
+      pointer-events: none;
+    }
+  }
 }
 
-.filled {
-
+.block {
+  width: 100%;
+  input {
+    width: 100%;
+  }
 }
 
-.outlined {
-
+@media not all and (min-resolution: .001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .input-container > input,
+    .input-container > input + label,
+    .input-container > input + label::before,
+    .input-container > input + label::after,
+    .input-container > textarea,
+    .input-container > textarea + label,
+    .input-container > textarea + label::before,
+    .input-container > textarea + label::after {
+      transition-duration: .1s;
+    }
+  }
 }
