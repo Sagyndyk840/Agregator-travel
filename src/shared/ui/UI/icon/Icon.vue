@@ -11,7 +11,7 @@ const svgIcon = computed(() => `src/shared/assets/icons/sprite.svg#${props.icon}
 </script>
 
 <template>
-  <svg class="icon">
+  <svg class="icon" style="width: 14px; height: 14px;">
     <use :xlink:href="svgIcon" />
   </svg>
 </template>

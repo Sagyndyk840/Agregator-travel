@@ -1,22 +1,22 @@
 import type { IconType } from '@/shared/ui/UI/icon/icon.props'
 
 export default interface ButtonProps {
-    type: BtnType, // success
-    label: string, // success
-    size: BtnSize, // success
-    outlined: boolean, // success
-    color:  string, // success
-    textColor: string, // success
-    block: boolean, // success
-    disabled: boolean, // success
-    loading: boolean, // success
-    iconLeft?: string, // success
-    iconRight?: string, // success
-    iconType?: IconType, // success
-    icon?: string, // success
-    to?: object, // success
-    width?: string, // success
-    flat: boolean, // success
+    type: BtnType,
+    label: string,
+    size: BtnSize,
+    outlined: boolean,
+    color:  string,
+    textColor: string,
+    block: boolean,
+    disabled: boolean,
+    loading: boolean,
+    iconLeft?: string,
+    iconRight?: string,
+    iconType?: IconType,
+    icon?: string,
+    to?: object,
+    width?: string,
+    flat: boolean,
 }
 
 type BtnType =
