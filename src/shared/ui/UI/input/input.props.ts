@@ -7,7 +7,7 @@ export default interface UIInputProps {
     outlined: boolean,
     // color: string,
     // textColor: string,
-    focusColor: string,
+    // focusColor: string,
     loading?: boolean,
     iconLeft?: string,
     iconRight?: string,
@@ -15,6 +15,8 @@ export default interface UIInputProps {
     type: UIInputType,
     label: string,
     error: boolean,
+    field: 'input' | 'textarea',
+    modelValue: string,
 }
 
 type UIInputType =

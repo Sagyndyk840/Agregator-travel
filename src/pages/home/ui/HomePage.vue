@@ -7,15 +7,16 @@ import Footer from '@/widgets/footer/Footer.vue'
 import Input from '@/shared/ui/UI/input'
 import { ref } from 'vue'
 
-let name = ref('')
+let name = ref('asfsf')
 </script>
 
 <template>
   <HeroSection />
   <br>
   <br>
+  {{name}}
   <br>
-  <div style="width: 200px">
+  <div style="width: 200px;">
     <Input v-model="name"/>
   </div>
   <br>

@@ -11,7 +11,7 @@ $color-disabled: rgba(28, 27, 31, 0.12);
       padding-top: 6px;
       font-size: 16px;
       font-weight: 400;
-      input {
+      input, textarea {
         box-sizing: border-box;
         width: 100%;
         padding: 14px;
@@ -125,7 +125,8 @@ $color-disabled: rgba(28, 27, 31, 0.12);
   }
 
   &.filled {
-    input {
+    input,
+    textarea {
       background: var(--neutrals);
       border-radius: 4px;
       padding: 8px 16px 8px 16px;

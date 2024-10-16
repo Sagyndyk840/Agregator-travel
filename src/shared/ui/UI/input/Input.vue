@@ -10,11 +10,15 @@ const props = withDefaults(defineProps<UIInputProps>(), {
   outlined: true,
   filled: false,
   block: false,
-  focusColor: 'white',
   iconType: 'filled',
+  field: 'input',
 })
 
-const model = defineModel()
+const emit = defineEmits(['update:modelValue'])
+
+const onField = (event: Event) => {
+  emit('update:modelValue', (event.target as HTMLInputElement).value)
+}
 </script>
 
 <template>
@@ -39,7 +43,7 @@ const model = defineModel()
     ]">
 <!--      <Icon class="icon icon-left"/>-->
 <!--      <Icon class="icon icon-right"/>-->
-      <input :disabled="props.disabled" id="input" :placeholder="props.filled ? props.label : ' '" v-model="model" :type="props.type">
+      <component :is="props.field" :value="props.modelValue" @input="onField" :disabled="props.disabled" id="input" :placeholder="props.filled ? props.label : ' '"  :type="props.type" />
       <label for="input">{{ props.label }}</label>
     </div>
   </div>
