@@ -6,7 +6,10 @@ const icons: string[] = [
 
 type Icons = typeof icons[number]
 
-export default interface IconProps {
-  icon: Icons,
-  type: 'outlined' | 'filled'
+export interface IconProps {
+  icon?: Icons,
+  type: IconType
 }
+
+export type IconType = 'outlined' | 'filled'
+

@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<{
     <div class="service-card__item--description">
       {{ props.description }}
     </div>
-    <Button size="medium" class="service-card__item--button" :to="props.to" :label="`Show ${props.title}`" color="#8DD3BB" text-color="#112211" />
+    <Button icon-left="send" size="medium" class="service-card__item--button" :to="props.to" :label="`Show ${props.title}`" color="#8DD3BB" text-color="#112211" />
   </div>
 </template>
 

@@ -1,3 +1,5 @@
+import type { IconType } from '@/shared/ui/UI/icon/icon.props'
+
 export default interface ButtonProps {
     type: BtnType, // success
     label: string, // success
@@ -8,12 +10,13 @@ export default interface ButtonProps {
     block: boolean, // success
     disabled: boolean, // success
     loading: boolean, // success
-    iconLeft?: string, // test
-    iconRight?: string, // test
-    icon?: string, // test
+    iconLeft?: string, // success
+    iconRight?: string, // success
+    iconType?: IconType, // success
+    icon?: string, // success
     to?: object, // success
     width?: string, // success
-    flat: boolean, // process
+    flat: boolean, // success
 }
 
 type BtnType =

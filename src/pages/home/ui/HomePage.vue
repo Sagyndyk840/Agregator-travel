@@ -9,17 +9,6 @@ import Icon from '@/shared/ui/UI/icon'
 
 <template>
   <HeroSection />
-  <br>
-  <br>
-  <br>
-  <div style="background: red">
-    <Icon icon="bed" type="filled" />
-    <Icon icon="plane" type="outlined" />
-  </div>
-  <br>
-  <br>
-  <br>
-
   <PlanTrip />
   <ServiceCard />
   <Review />

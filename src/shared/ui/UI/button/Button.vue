@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type ButtonProps from './button.props';
 import Loader from '@/shared/ui/UI/loader/Loader.vue'
+import Icon from '@/shared/ui/UI/icon'
 
 const emit = defineEmits(['click'])
 
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   loading: false,
   size: 'small',
   flat: false,
+  iconType: 'filled',
 })
 
 const click = (): void => {
@@ -60,23 +62,29 @@ const click = (): void => {
     >
       <div class="loader flex align-center justify-center" v-if="props.loading">
         <slot name='loader'>
-          <Loader :size="props.size" :color="props.color" :loading="props.loading" />
+          <Loader :size="props.size" :color="props.outlined ? props.color : props.textColor" :loading="props.loading" />
         </slot>
       </div>
       <div v-else class="flex align-center justify-center">
         <div v-if="props.icon">
-          <slot name="icon"></slot>
+          <slot name="icon">
+            <Icon :icon="icon" :type="props.iconType" />
+          </slot>
         </div>
         <div v-else>
           <div v-if='!icon || !$slots["icon-left"]' class='flex align-center justify-center icon'>
             <div style='padding-right: 4px;' v-if='$slots["icon-left"] || props.iconLeft' class='flex align-center justify-center icon-slot icon-slot-left'>
-              <slot name="icon-left"></slot>
+              <slot name="icon-left">
+                <Icon :icon="iconLeft" :type="props.iconType" />
+              </slot>
             </div>
             <slot :class="props.textColor" name="label">
               {{ props.label }}
             </slot>
             <div style='padding-left: 4px;' v-if='$slots["icon-right"] || props.iconRight' class='flex align-center justify-center icon-slot icon-slot-right'>
-              <slot name="icon-right"></slot>
+              <slot name="icon-right">
+                <Icon :icon="iconRight" :type="props.iconType" />
+              </slot>
             </div>
           </div>
         </div>

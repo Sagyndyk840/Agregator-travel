@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { computed } from 'vue'
-import type IconProps from '@/shared/ui/UI/icon/icon.props'
+import type { IconProps } from '@/shared/ui/UI/icon/icon.props'
 
 const props = withDefaults(defineProps<IconProps>(), {
   type: 'outlined'
