@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type UIInputProps from '@/shared/ui/UI/input/input.props';
 import Icon from '@/shared/ui/UI/icon'
+import { onMounted } from 'vue'
 
 const props = withDefaults(defineProps<UIInputProps>(), {
   type: 'text',
@@ -19,6 +20,9 @@ const emit = defineEmits(['update:modelValue'])
 const onField = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
 }
+onMounted(() => {
+})
+
 </script>
 
 <template>
@@ -30,21 +34,21 @@ const onField = (event: Event) => {
       'block': props.block,
     }
   ]">
-<!--    <div v-if='!$slots["icon-left"]' class='flex align-center justify-center icon'>-->
-<!--      <div style='padding-right: 4px;' v-if='$slots["icon-left"] || props.iconLeft' class='flex align-center justify-center icon-slot icon-slot-left'>-->
-<!--        <slot name="icon-left">-->
-<!--          <Icon :icon="iconLeft" :type="props.iconType" />-->
-<!--        </slot>-->
-<!--      </div>-->
     <div class="input-container" :class="[
       {
         'input-error': props.error,
       }
     ]">
-<!--      <Icon class="icon icon-left"/>-->
-<!--      <Icon class="icon icon-right"/>-->
-      <component :is="props.field" :value="props.modelValue" @input="onField" :disabled="props.disabled" id="input" :placeholder="props.filled ? props.label : ' '"  :type="props.type" />
-      <label for="input">{{ props.label }}</label>
+      <Icon v-if="props.iconLeft" :size="18" :icon="props.iconLeft" :type="props.iconType" class="icon icon-left"/>
+      <Icon v-if="props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right"/>
+      <component :style="[{
+        'padding-left': props.iconLeft ? '40px': '14px',
+        'padding-right': props.iconRight ? '40px': '14px',
+      }]" :is="props.field" :value="props.modelValue" @input="onField" :disabled="props.disabled" :id="props.name" :placeholder="props.filled ? props.label : ' '"  :type="props.type" />
+      <label :style="[{
+        'padding-left': props.iconLeft ? '35px': '0',
+        'padding-right': props.iconRight ? '35px': '0',
+      }]" :for="props.name">{{ props.label }}</label>
     </div>
   </div>
 </template>

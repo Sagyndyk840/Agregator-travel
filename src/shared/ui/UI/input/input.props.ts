@@ -17,6 +17,7 @@ export default interface UIInputProps {
     error: boolean,
     field: 'input' | 'textarea',
     modelValue: string,
+    name: string,
 }
 
 type UIInputType =

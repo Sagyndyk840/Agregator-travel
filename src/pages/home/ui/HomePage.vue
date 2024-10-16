@@ -8,6 +8,8 @@ import Input from '@/shared/ui/UI/input'
 import { ref } from 'vue'
 
 let name = ref('asfsf')
+let name2 = ref('asfsf')
+
 </script>
 
 <template>
@@ -16,8 +18,10 @@ let name = ref('asfsf')
   <br>
   {{name}}
   <br>
-  <div style="width: 200px;">
-    <Input v-model="name"/>
+  <div style="width: 200px; margin-left: 50px;">
+    <Input   v-model="name"/>
+    <br>
+    <Input  icon-left="plane"  v-model="name2"/>
   </div>
   <br>
   <br>

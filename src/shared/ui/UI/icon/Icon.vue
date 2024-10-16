@@ -4,14 +4,15 @@ import { computed } from 'vue'
 import type { IconProps } from '@/shared/ui/UI/icon/icon.props'
 
 const props = withDefaults(defineProps<IconProps>(), {
-  type: 'outlined'
+  type: 'outlined',
+  size: 14,
 })
 
 const svgIcon = computed(() => `src/shared/assets/icons/sprite.svg#${props.icon}-${props.type}`)
 </script>
 
 <template>
-  <svg class="icon" style="width: 14px; height: 14px;">
+  <svg class="icon" :style="{ width: props.size + 'px', height: props.size + 'px' }">
     <use :xlink:href="svgIcon" />
   </svg>
 </template>

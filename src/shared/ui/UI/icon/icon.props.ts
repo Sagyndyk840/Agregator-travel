@@ -8,7 +8,8 @@ type Icons = typeof icons[number]
 
 export interface IconProps {
   icon?: Icons,
-  type: IconType
+  type: IconType,
+  size?: number,
 }
 
 export type IconType = 'outlined' | 'filled'
