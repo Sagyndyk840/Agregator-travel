@@ -264,3 +264,13 @@ $color-disabled: rgba(28, 27, 31, 0.12);
   opacity: 0.38;
   pointer-events: none;
 }
+
+.hint {
+  font-family: var(--font-family), serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #1c1b1f;
+  margin-top: 4px;
+  margin-left: 16px;
+  margin-right: 16px;
+}

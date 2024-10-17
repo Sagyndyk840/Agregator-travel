@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<UIFieldProps>(), {
   placeholder: '',
   size: 'normal',
   prefix: '',
-  loading: true,
+  loading: false,
 })
 
 const fieldName = computed((): string => props.name !== ' ' ? props.name : generateUniqueName())
@@ -81,6 +81,9 @@ const onField = (event: Event) => {
         {{ props.label }}
       </label>
       <Loader class="loader" :loading="props.loading" size="large" color="#79747e" />
+    </div>
+    <div class="hint" v-if="props.hint">
+      {{ props.hint }}
     </div>
   </div>
 </template>

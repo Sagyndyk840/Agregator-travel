@@ -17,6 +17,7 @@ export default interface UIFieldProps {
     field: 'input' | 'textarea',
     modelValue: any,
     name: string,
+    hint?: string,
 
     // Process
 

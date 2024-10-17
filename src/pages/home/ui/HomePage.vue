@@ -19,9 +19,6 @@ let name = ref('')
     <Field v-model="name"></Field>
   </div>
   <br>
-  <div style="width: 300px">
-    <Field icon-right="plane" :loading="true" v-model="name"></Field>
-  </div>
   <br>
   <br>
   <PlanTrip />
