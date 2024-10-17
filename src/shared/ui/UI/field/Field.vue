@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import type UIInputProps from '@/shared/ui/UI/input/input.props';
 import Icon from '@/shared/ui/UI/icon'
-import { onMounted } from 'vue'
+import type UIFieldProps from '@/shared/ui/UI/field/field.props'
+import { computed } from 'vue'
 
-const props = withDefaults(defineProps<UIInputProps>(), {
+const generateUniqueName = (): string => {
+  const prefix = 'field_';
+  const uniqueId = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+  return `${prefix}${uniqueId}`;
+}
+
+const props = withDefaults(defineProps<UIFieldProps>(), {
   type: 'text',
   disabled: false,
   label: 'Label',
@@ -13,20 +19,25 @@ const props = withDefaults(defineProps<UIInputProps>(), {
   block: false,
   iconType: 'filled',
   field: 'input',
+  name: ' ',
+  value: '',
+  placeholder: '',
+  size: 'normal',
+  prefix: '',
 })
+
+const fieldName = computed((): string => props.name !== ' ' ? props.name : generateUniqueName())
 
 const emit = defineEmits(['update:modelValue'])
 
 const onField = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
 }
-onMounted(() => {
-})
 
 </script>
 
 <template>
-  <div class="input" :class="[
+  <div class="field" :class="[
     {
       'outlined': !props.filled && props.outlined,
       'filled': props.filled,
@@ -34,9 +45,9 @@ onMounted(() => {
       'block': props.block,
     }
   ]">
-    <div class="input-container" :class="[
+    <div class="field-container" :class="[
       {
-        'input-error': props.error,
+        'field-error': props.error,
       }
     ]">
       <Icon v-if="props.iconLeft" :size="18" :icon="props.iconLeft" :type="props.iconType" class="icon icon-left"/>
@@ -44,11 +55,11 @@ onMounted(() => {
       <component :style="[{
         'padding-left': props.iconLeft ? '40px': '14px',
         'padding-right': props.iconRight ? '40px': '14px',
-      }]" :is="props.field" :value="props.modelValue" @input="onField" :disabled="props.disabled" :id="props.name" :placeholder="props.filled ? props.label : ' '"  :type="props.type" />
+      }]" :is="props.field" :value="props.modelValue" @input="onField" :disabled="props.disabled" :id="fieldName" :placeholder="props.filled ? props.label : ' '"  :type="props.type" />
       <label :style="[{
         'padding-left': props.iconLeft ? '35px': '0',
         'padding-right': props.iconRight ? '35px': '0',
-      }]" :for="props.name">{{ props.label }}</label>
+      }]" :for="fieldName">{{ props.label }}</label>
     </div>
   </div>
 </template>

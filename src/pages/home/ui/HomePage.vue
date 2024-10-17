@@ -4,25 +4,23 @@ import PlanTrip from '@/widgets/home/plan-trip'
 import ServiceCard from '@/widgets/home/service-card'
 import Review from '@/widgets/home/review'
 import Footer from '@/widgets/footer/Footer.vue'
-import Input from '@/shared/ui/UI/input'
-import { ref } from 'vue'
+import Field from '@/shared/ui/UI/field'
+import { type Ref, ref } from 'vue'
 
-let name = ref('asfsf')
-let name2 = ref('asfsf')
-
+let name: Ref<string> = ref('')
 </script>
 
 <template>
   <HeroSection />
   <br>
   <br>
-  {{name}}
+  {{name }}
   <br>
-  <div style="width: 200px; margin-left: 50px;">
-    <Input   v-model="name"/>
-    <br>
-    <Input  icon-left="plane"  v-model="name2"/>
-  </div>
+  <Field v-model="name" />
+  <br>
+  <Field v-model="name" />
+  <br>
+  <Field name="asd22222" v-model="name" />
   <br>
   <br>
   <br>

@@ -1,6 +1,6 @@
 import type { IconType } from '@/shared/ui/UI/icon/icon.props'
 
-export default interface UIInputProps {
+export default interface UIFieldProps {
     disabled: boolean,
     block: boolean,
     filled: boolean,
@@ -12,15 +12,15 @@ export default interface UIInputProps {
     iconLeft?: string,
     iconRight?: string,
     iconType: IconType,
-    type: UIInputType,
+    type: UIFieldType,
     label: string,
     error: boolean,
     field: 'input' | 'textarea',
-    modelValue: string,
+    modelValue: any,
     name: string,
 }
 
-type UIInputType =
+type UIFieldType =
     | 'text'
     | 'password'
     | 'number';

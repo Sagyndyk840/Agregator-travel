@@ -1,12 +1,12 @@
 $color-default: #79747e;
-$animation-speed: .2s;
 $color-focused: var(--mint-green);
+$animation-speed: .2s;
 $color-error: #fd736e;
 $color-disabled: rgba(28, 27, 31, 0.12);
-.input {
+.field {
 
   &.outlined {
-    .input-container {
+    .field-container {
       position: relative;
       padding-top: 6px;
       font-size: 16px;
