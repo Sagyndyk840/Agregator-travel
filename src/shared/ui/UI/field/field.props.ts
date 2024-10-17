@@ -6,9 +6,8 @@ export default interface UIFieldProps {
     filled: boolean,
     outlined: boolean,
     // color: string,
-    // textColor: string,
     // focusColor: string,
-    loading?: boolean,
+    loading: boolean,
     iconLeft?: string,
     iconRight?: string,
     iconType: IconType,
@@ -18,6 +17,14 @@ export default interface UIFieldProps {
     field: 'input' | 'textarea',
     modelValue: any,
     name: string,
+
+    // Process
+
+    // Rules
+    // Hint
+
+    // Password
+    // Clear
 }
 
 type UIFieldType =

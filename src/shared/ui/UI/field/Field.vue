@@ -2,6 +2,7 @@
 import Icon from '@/shared/ui/UI/icon'
 import type UIFieldProps from '@/shared/ui/UI/field/field.props'
 import { computed } from 'vue'
+import Loader from '@/shared/ui/UI/loader/Loader.vue'
 
 const generateUniqueName = (): string => {
   const prefix = 'field_';
@@ -24,6 +25,7 @@ const props = withDefaults(defineProps<UIFieldProps>(), {
   placeholder: '',
   size: 'normal',
   prefix: '',
+  loading: true,
 })
 
 const fieldName = computed((): string => props.name !== ' ' ? props.name : generateUniqueName())
@@ -51,15 +53,34 @@ const onField = (event: Event) => {
       }
     ]">
       <Icon v-if="props.iconLeft" :size="18" :icon="props.iconLeft" :type="props.iconType" class="icon icon-left"/>
-      <Icon v-if="props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right"/>
-      <component :style="[{
-        'padding-left': props.iconLeft ? '40px': '14px',
-        'padding-right': props.iconRight ? '40px': '14px',
-      }]" :is="props.field" :value="props.modelValue" @input="onField" :disabled="props.disabled" :id="fieldName" :placeholder="props.filled ? props.label : ' '"  :type="props.type" />
-      <label :style="[{
-        'padding-left': props.iconLeft ? '35px': '0',
-        'padding-right': props.iconRight ? '35px': '0',
-      }]" :for="fieldName">{{ props.label }}</label>
+      <Icon v-if="props.loading ? false : props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right"/>
+<!--      <Icon v-if="props.loading ? false : props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right"/>-->
+      <component
+        :style="[
+          {
+          'padding-left': props.iconLeft ? '40px': '14px',
+          'padding-right': props.iconRight ? '40px': '14px',
+          }
+        ]"
+        :is="props.field"
+        :value="props.modelValue"
+        @input="onField"
+        :disabled="props.loading || props.disabled"
+        :id="fieldName"
+        :placeholder="props.filled ? props.label : ' '"
+        :type="props.type"
+      />
+      <label
+        :style="[
+          {
+          'padding-left': props.iconLeft ? '35px': '0',
+          'padding-right': props.iconRight ? '35px': '0',
+          }
+        ]"
+        :for="fieldName">
+        {{ props.label }}
+      </label>
+      <Loader class="loader" :loading="props.loading" size="large" color="#79747e" />
     </div>
   </div>
 </template>

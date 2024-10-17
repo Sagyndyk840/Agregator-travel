@@ -5,23 +5,23 @@ import ServiceCard from '@/widgets/home/service-card'
 import Review from '@/widgets/home/review'
 import Footer from '@/widgets/footer/Footer.vue'
 import Field from '@/shared/ui/UI/field'
-import { type Ref, ref } from 'vue'
+import { ref } from 'vue'
 
-let name: Ref<string> = ref('')
+let name = ref('')
 </script>
 
 <template>
   <HeroSection />
   <br>
   <br>
-  {{name }}
   <br>
-  <Field v-model="name" />
+  <div style="width: 300px">
+    <Field v-model="name"></Field>
+  </div>
   <br>
-  <Field v-model="name" />
-  <br>
-  <Field name="asd22222" v-model="name" />
-  <br>
+  <div style="width: 300px">
+    <Field icon-right="plane" :loading="true" v-model="name"></Field>
+  </div>
   <br>
   <br>
   <PlanTrip />
