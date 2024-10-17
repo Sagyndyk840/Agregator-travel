@@ -13,17 +13,16 @@ export default interface UIFieldProps {
     iconType: IconType,
     type: UIFieldType,
     label: string,
-    error: boolean,
+    // error: boolean,
     field: 'input' | 'textarea',
     modelValue: any,
     name: string,
     hint?: string,
+    rules?: Array<(value: string) => boolean | string>,
 
     // Process
 
     // Rules
-    // Hint
-
     // Password
     // Clear
 }

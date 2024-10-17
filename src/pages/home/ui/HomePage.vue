@@ -16,7 +16,10 @@ let name = ref('')
   <br>
   <br>
   <div style="width: 300px">
-    <Field v-model="name"></Field>
+    <Field v-model="name" :rules="[
+        value => !!value || 'Обязательно.',
+        value => (value || '').length <= 20 || 'Максимум 20 цифр',
+    ]" />
   </div>
   <br>
   <br>

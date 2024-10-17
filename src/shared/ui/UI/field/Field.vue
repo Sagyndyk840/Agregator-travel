@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Icon from '@/shared/ui/UI/icon'
 import type UIFieldProps from '@/shared/ui/UI/field/field.props'
-import { computed } from 'vue'
+import { computed, type Ref, ref } from 'vue'
 import Loader from '@/shared/ui/UI/loader/Loader.vue'
 
 const generateUniqueName = (): string => {
@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<UIFieldProps>(), {
   type: 'text',
   disabled: false,
   label: 'Label',
-  error: false,
+  // error: true,
   outlined: true,
   filled: false,
   block: false,
@@ -36,6 +36,25 @@ const onField = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
 }
 
+let errorMessage: Ref<string> = ref('')
+let errorStatus: Ref<boolean> = ref(false)
+
+const validateInput = (): void => {
+  errorMessage.value = ''
+  errorStatus.value = false
+
+  if (props.rules) {
+    for (const rule of props.rules) {
+      const result = rule(props.modelValue)
+      if (result !== true) {
+        errorMessage.value = result as string
+        errorStatus.value = true
+        break
+      }
+    }
+  }
+}
+
 </script>
 
 <template>
@@ -45,13 +64,10 @@ const onField = (event: Event) => {
       'filled': props.filled,
       'disabled': props.disabled,
       'block': props.block,
+      'field-error': errorStatus,
     }
   ]">
-    <div class="field-container" :class="[
-      {
-        'field-error': props.error,
-      }
-    ]">
+    <div class="field-container">
       <Icon v-if="props.iconLeft" :size="18" :icon="props.iconLeft" :type="props.iconType" class="icon icon-left"/>
       <Icon v-if="props.loading ? false : props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right"/>
 <!--      <Icon v-if="props.loading ? false : props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right"/>-->
@@ -65,6 +81,7 @@ const onField = (event: Event) => {
         :is="props.field"
         :value="props.modelValue"
         @input="onField"
+        @blur="validateInput"
         :disabled="props.loading || props.disabled"
         :id="fieldName"
         :placeholder="props.filled ? props.label : ' '"
@@ -82,9 +99,12 @@ const onField = (event: Event) => {
       </label>
       <Loader class="loader" :loading="props.loading" size="large" color="#79747e" />
     </div>
-    <div class="hint" v-if="props.hint">
-      {{ props.hint }}
-    </div>
+    <transition>
+      <div class="hint" v-if="props.hint || errorStatus">
+        <span v-if="errorStatus">{{ errorMessage }}</span>
+        <span v-else-if="props.hint">{{ props.hint }}</span>
+      </div>
+    </transition>
   </div>
 </template>
 
