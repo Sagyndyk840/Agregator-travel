@@ -6,12 +6,18 @@ import Review from '@/widgets/home/review'
 import Footer from '@/widgets/footer/Footer.vue'
 import Field from '@/shared/ui/UI/field'
 import { ref } from 'vue'
+import Select from '@/shared/ui/UI/select/Select.vue'
 
 let name = ref('')
 </script>
 
 <template>
   <HeroSection />
+  <br>
+  <br>
+  {{name}}
+  <br>
+  <Select v-model="name" />
   <br>
   <br>
   <br>

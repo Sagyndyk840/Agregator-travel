@@ -14,7 +14,6 @@ const props = withDefaults(defineProps<UIFieldProps>(), {
   type: 'text',
   disabled: false,
   label: 'Label',
-  // error: true,
   outlined: true,
   filled: false,
   block: false,
@@ -31,7 +30,7 @@ const props = withDefaults(defineProps<UIFieldProps>(), {
 
 const fieldName = computed((): string => props.name !== ' ' ? props.name : generateUniqueName())
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'blur', 'focus'])
 
 const onField = (event: Event) => {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
@@ -60,6 +59,16 @@ const clear = (): void => {
   emit('update:modelValue', '')
 }
 
+const handleBlur = ():void => {
+  validateInput();
+  emit('blur')
+}
+
+const handleFocus = (): void => {
+  emit('focus')
+}
+
+
 </script>
 
 <template>
@@ -87,7 +96,8 @@ const clear = (): void => {
         :is="props.field"
         :value="props.modelValue"
         @input="onField"
-        @blur="validateInput"
+        @blur="handleBlur"
+        @focus="handleFocus"
         :disabled="props.loading || props.disabled"
         :id="fieldName"
         :placeholder="props.filled ? props.label : ' '"
