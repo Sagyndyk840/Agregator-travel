@@ -9,20 +9,25 @@ import { ref } from 'vue'
 import Select from '@/shared/ui/UI/select/Select.vue'
 
 let name = ref('')
+
+let data = ref([
+  {id: 1, label: 'Hello 1'},
+  {id: 2, label: 'Hello 2'},
+  {id: 3, label: 'Hello 3'},
+  {id: 4, label: 'Hello 4'},
+])
 </script>
 
 <template>
-  <HeroSection />
-  <br>
-  <br>
+
   {{name}}
   <br>
-  <Select v-model="name" />
+  <Select v-model="name" :options="data" />
   <br>
   <br>
   <br>
   <div style="width: 300px">
-    <Field v-model="name"   :rules="[
+    <Field v-model="name.value"   :rules="[
         value => !!value || 'Обязательно.',
         value => (value || '').length <= 20 || 'Максимум 20 цифр',
     ]" />

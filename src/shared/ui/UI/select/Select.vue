@@ -44,27 +44,31 @@ const onBlur = (): boolean => dropDownShowOrHide.value = false
 
 let selectedId = ref()
 
-const selectOption = (option: OptionType) => {
-  model.value = option[props.optionLabel as keyof ];  // Убрано приведение, т.к. уже определено
-  selectedId.value = option[props.optionValue as keyof ];  // Убрано приведение, т.к. уже определено
-}
+const emit = defineEmits(['update:modelValue'])
+
+const selectOption = (option: any) => {
+  model.value = option
+  selectedId.value = option.id
+  emit('update:modelValue', option)
+  dropDownShowOrHide.value = false
+};
 
 </script>
 
 <template>
   <div class="select">
     <div class="select-container">
-      <Field :props @focus="onFocus" @blur="onBlur" v-model="model" label="Select" />
+      <Field :props @focus="onFocus" @blur="onBlur" v-model="model.value" label="Select" />
     </div>
     <transition>
       <ul class="select-dropdown" v-if="dropDownShowOrHide">
         <li
           v-for="option in props.options"
-          :key="option[props.optionValue]"
-          @click="selectOption(option)"
+          :key="option.id"
           :class="{ 'active': selectedId === option.id }"
+          @click="selectOption(option)"
         >
-          {{ option[props.optionLabel] }}
+          {{ option.value }}
         </li>
       </ul>
     </transition>
