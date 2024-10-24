@@ -51,14 +51,14 @@ const selectOption = (option: any) => {
   selectedId.value = option.id
   emit('update:modelValue', option)
   dropDownShowOrHide.value = false
-};
+}
 
 </script>
 
 <template>
   <div class="select">
     <div class="select-container">
-      <Field :props @focus="onFocus" @blur="onBlur" v-model="model.value" label="Select" />
+      <Field v-bind="props" @focus="onFocus" @blur="onBlur" v-model="model.value" label="Select" />
     </div>
     <transition>
       <ul class="select-dropdown" v-if="dropDownShowOrHide">
