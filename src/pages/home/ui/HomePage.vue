@@ -30,7 +30,7 @@ let date = ref('15.10.2024')
   <br>
   <br>
   <div style="width: 400px;">
-    <DatePicker v-model="date" label="date" />
+    <DatePicker v-model="date" label="date" format="MM/dd/yyyy" />
   </div>
   <br>
   <br>
