@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted, type Ref, ref, watch } from 'vue'
+import { computed, onMounted, type Ref, ref, watch, useTemplateRef, onUnmounted } from 'vue'
 import Field from '@/shared/ui/UI/field'
 import type UIFieldProps from '@/shared/ui/UI/field/field.props'
 import type { UIDatePickerProps } from '@/shared/ui/UI/date-picker/date-picker.props'
+import Icon from '@/shared/ui/UI/icon'
+import moment from 'moment'
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -53,19 +55,31 @@ const formattedDateRange = computed((): string => {
 })
 
 const prevMonth = (): void => {
-  currentDate.value.setMonth(month.value - 1)
+  const date = new Date(currentDate.value)
+  date.setMonth(date.getMonth() - 1)
+  currentDate.value = date
+
 }
 const nextMonth = (): void => {
-  currentDate.value.setMonth(month.value + 1)
+  const date = new Date(currentDate.value)
+  date.setMonth(date.getMonth() + 1)
+  currentDate.value = date
+
 }
 const generateDays = () => {
   const daysInMonth = new Date(year.value, month.value + 1, 0).getDate()
   days.value = Array.from({ length: daysInMonth }, (_, i) => i + 1)
 }
 
+const isPastDate = (day: number): boolean => {
+  const today = new Date()
+  const date = new Date(year.value, month.value, day)
+  return date < today && date.toDateString() !== today.toDateString()
+}
+
 const selectDate = (day: number): void => {
   const selectedDate = new Date(year.value, month.value, day)
-
+  if (isPastDate(day)) return
   if (selectingStart.value) {
     startDate.value = selectedDate;
     endDate.value = null
@@ -83,6 +97,7 @@ const selectDate = (day: number): void => {
 
 const dayClass = (day: number): string => {
   const date = new Date(year.value, month.value, day)
+  if (isPastDate(day)) return 'disabled'
   if (startDate.value && endDate.value && date >= startDate.value && date <= endDate.value) {
     return 'selected-range'
   }
@@ -110,10 +125,6 @@ const initializeDates = (): void => {
   }
 }
 
-onMounted(() => {
-  initializeDates()
-})
-
 watch(() => props.modelValue, () => {
   initializeDates()
 })
@@ -131,24 +142,42 @@ const closeCalendar = (): void => {
   showCalendar.value = false
 }
 
+let datePickerContainer = ref('datePickerContainer')
+
+const handleClickOutside = (event: MouseEvent) => {
+  const calendarElement = datePickerContainer.value
+  if (calendarElement && !calendarElement.contains(event.target as Node)) {
+    closeCalendar()
+  }
+}
+
+onMounted(() => {
+  initializeDates()
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
+
 </script>
 
 <template>
-  <div class="datepicker-container">
+  <div class="datepicker-container" ref="datePickerContainer">
     <Field v-bind="props" v-model="formattedDateRange" @focus="openCalendar" />
 
     <div v-if="showCalendar" class="calendar">
       <div class="calendar-header">
-        <button @click="prevMonth">&lt;</button>
+        <Icon icon="back-chevron" type="general" @click="prevMonth" />
         <span>{{ monthName }} {{ year }}</span>
-        <button @click="nextMonth">&gt;</button>
+        <Icon icon="next-chevron" type="general" @click="nextMonth" />
       </div>
       <div class="calendar-body">
         <div class="day"
              v-for="day in days"
              :key="day"
              :class="dayClass(day)"
-             @click="selectDate(day)">
+             @click="isPastDate(day) ? null : selectDate(day)">
           {{ day }}
         </div>
       </div>

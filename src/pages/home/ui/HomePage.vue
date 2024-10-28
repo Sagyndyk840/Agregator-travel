@@ -35,23 +35,6 @@ let date = ref('15.10.2024')
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  {{name}}
-  <br>
-  <Select v-model="name" label="select222" :options="data" />
-  <br>
-  <br>
-  <br>
-  <div style="width: 300px">
-    <Field v-model="name.label" label="hello"  :rules="[
-        value => !!value || 'Обязательно.',
-        value => (value || '').length <= 20 || 'Максимум 20 цифр',
-    ]" />
-  </div>
-  <br>
-  <br>
-  <br>
   <HeroSection />
   <PlanTrip />
   <ServiceCard />
