@@ -1,0 +1,8 @@
+.flight-tabs {
+  margin-top: 50px;
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 24px;
+  }
+}

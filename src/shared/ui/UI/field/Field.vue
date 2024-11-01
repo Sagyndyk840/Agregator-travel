@@ -85,7 +85,11 @@ const handleFocus = (): void => {
       <Icon v-if="props.iconLeft" :size="18" :icon="props.iconLeft" :type="props.iconType" class="icon icon-left"/>
       <div v-if="props.loading"></div>
       <Icon v-else-if="props.clear"  @click="clear" :size="18" icon="clear" :type="props.iconType" class="icon icon-right cursor-pointer" />
-      <Icon v-else-if="props.iconRight" :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right "/>
+      <div v-else-if="$slots['icon-right'] || props.iconRight" >
+        <slot name="icon-right">
+          <Icon :size="18" :icon="props.iconRight" :type="props.iconType" class="icon icon-right "/>
+        </slot>
+      </div>
       <component
         :style="[
           {

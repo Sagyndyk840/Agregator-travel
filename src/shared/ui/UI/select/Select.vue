@@ -4,6 +4,7 @@ import type { UISelectProps, OptionType } from '@/shared/ui/UI/select/select.pro
 import { computed, type Ref, ref } from 'vue'
 import Field from '@/shared/ui/UI/field'
 import type UIFieldProps from '@/shared/ui/UI/field/field.props'
+import Icon from '@/shared/ui/UI/icon'
 
 let model = defineModel()
 
@@ -58,7 +59,11 @@ const selectOption = (option: any) => {
 <template>
   <div class="select">
     <div class="select-container">
-      <Field v-bind="props" @focus="onFocus" @blur="onBlur" v-model="model.value" label="Select" />
+      <Field v-bind="props" @focus="onFocus" @blur="onBlur" v-model="model.value" >
+        <template #icon-right >
+          <Icon :size="25" icon="select-down" type="general" class="select-icon__right"/>
+        </template>
+      </Field>
     </div>
     <transition>
       <ul class="select-dropdown" v-if="dropDownShowOrHide">

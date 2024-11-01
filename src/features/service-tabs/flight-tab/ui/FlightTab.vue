@@ -1,0 +1,45 @@
+<script setup lang="ts">
+
+import Field from '@/shared/ui/UI/field'
+import { reactive, ref } from 'vue'
+import Select from '@/shared/ui/UI/select/Select.vue'
+import DatePicker from '@/shared/ui/UI/date-picker'
+import Button from '@/shared/ui/UI/button'
+
+interface FlightData {
+  from: string
+  to: string
+  trip: string
+  departReturn: string
+}
+
+let flightData: FlightData = reactive({
+  from: '',
+  to: '',
+  trip: '',
+  departReturn: ''
+})
+
+let trips = ref([
+  { id: '1', value: 'One-way' },
+  { id: '2', value: 'Round trip' }
+])
+</script>
+
+<template>
+  <div class="flight-tabs">
+    <div class="flight-tabs__top">
+      <Field v-model="flightData.from" label="From" />
+      <Field v-model="flightData.to" label="To" />
+      <Select :options="trips" v-model="flightData.trip" label="Trip" />
+      <DatePicker v-model="flightData.departReturn" label="Depart-Return" />
+    </div>
+    <div class="flight-tabs__bottom">
+      <Button label="Show Filghts" color="#8dd3bb" text-color="#121" />
+    </div>
+  </div>
+</template>
+
+<style scoped lang="scss">
+@import "style";
+</style>
