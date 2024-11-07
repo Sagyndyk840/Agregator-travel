@@ -1,5 +1,5 @@
 import type {RouteRecordRaw} from 'vue-router';
-import {DefaultLayout} from '@/app/layouts';
+import { AuthLayout, DefaultLayout } from '@/app/layouts'
 
 export const routes : readonly RouteRecordRaw[] = [
     {
@@ -10,11 +10,27 @@ export const routes : readonly RouteRecordRaw[] = [
                 path: '',
                 component: () => import('@/pages/home'),
                 name: 'HomePage',
+                meta: {
+                    roles: ['auth', 'guest']
+                },
             }
         ],
-        meta: {
-            roles: ['auth']
-        },
+
+    },
+    {
+      path: '/',
+      component: AuthLayout,
+
+      children: [
+          {
+              path: 'login',
+              component: () => import('@/pages/login'),
+              name: 'LoginPage',
+          }
+      ],
+      meta: {
+          roles: ['guest']
+      },
     },
     {
         path: '/:pathMatch(.*)',

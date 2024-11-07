@@ -35,7 +35,7 @@ let trips = ref([
       <DatePicker v-model="flightData.departReturn" label="Depart-Return" />
     </div>
     <div class="flight-tabs__bottom">
-      <Button label="Show Filghts" color="#8dd3bb" text-color="#121" />
+      <Button icon-left="send" size="large" label="Show Filghts" color="#8DD3BB" text-color="#112211" />
     </div>
   </div>
 </template>
