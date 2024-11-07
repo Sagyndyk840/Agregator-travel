@@ -2,20 +2,18 @@
 import { type Ref, ref } from 'vue'
 import Slide from '@/shared/ui/slide'
 import { type Slide as SlideType } from '@/shared/lib/utility-types/slide'
-import slideImg1 from '@/shared/assets/images/slide-1.png'
-import slideImg2 from '@/shared/assets/images/slide-2.png'
 const slides: Ref<SlideType[]> = ref([
   {
-    img: slideImg1,
+    img: 'src/shared/assets/images/slide-1.png',
   },
   {
-    img: slideImg2,
+    img: 'src/shared/assets/images/slide-2.png',
   },
   {
-    img: slideImg1
+    img: 'src/shared/assets/images/slide-1.png',
   },
   {
-    img: slideImg2
+    img: 'src/shared/assets/images/slide-2.png',
   },
 ])
 
@@ -29,7 +27,8 @@ const clickDot = (index: number) => {
 
 <template>
   <div class="slider">
-    <div class="slider-container">
+    <div class="slider-container"
+    >
       <Slide v-for="(slide, index) in slides"
              :key="slide.img"
              :img="slide.img"
