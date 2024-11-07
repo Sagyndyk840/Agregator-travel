@@ -2,23 +2,27 @@
 import { type Ref, ref } from 'vue'
 import Slide from '@/shared/ui/slide'
 import { type Slide as SlideType } from '@/shared/lib/utility-types/slide'
-import slideImg from '@/shared/assets/images/Rectangle 20.png'
+import slideImg1 from '@/shared/assets/images/slide-1.png'
+import slideImg2 from '@/shared/assets/images/slide-2.png'
 const slides: Ref<SlideType[]> = ref([
   {
-    img: slideImg,
+    img: slideImg1,
   },
   {
-    img: slideImg,
+    img: slideImg2,
   },
   {
-    img: slideImg
-  }
+    img: slideImg1
+  },
+  {
+    img: slideImg2
+  },
 ])
 
 let currentSlide: Ref<number> = ref(0)
 
-const clickDot = (index: any) => {
-
+const clickDot = (index: number) => {
+  currentSlide.value = index
 }
 
 </script>
@@ -26,10 +30,19 @@ const clickDot = (index: any) => {
 <template>
   <div class="slider">
     <div class="slider-container">
-      <Slide v-for="slide in slides" :key="slide.img" :img="slide.img" :alt="slide.alt"/>
+      <Slide v-for="(slide, index) in slides"
+             :key="slide.img"
+             :img="slide.img"
+             :alt="slide.alt"
+             :class="{ active: index === currentSlide }"/>
     </div>
     <div class="slider-dots">
-      <div class="slide-dot " v-for="(index, dot) in slides" :key="index" @click="clickDot(index)"></div>
+      <div class="slide-dot"
+           v-for="(_, index) in slides"
+           :key="index"
+           @click="clickDot(index)"
+           :class="{ active: index === currentSlide }"
+      ></div>
     </div>
   </div>
 </template>

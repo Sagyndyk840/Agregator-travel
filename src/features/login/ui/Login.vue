@@ -28,7 +28,7 @@ let remember: Ref<boolean> = ref(false)
       </div>
       <div class="remember">
         <Checkbox v-model="remember" label="Remember me" value="remember"/>
-        <router-link to="" class="forgot-password">Forgot Password</router-link>
+<!--        <router-link to="" class="forgot-password">Forgot Password</router-link>-->
       </div>
       <Button block label="Login" align="center" size="medium" />
       <div class="or-login">
