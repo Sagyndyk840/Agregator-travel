@@ -24,7 +24,7 @@ let remember: Ref<boolean> = ref(false)
           Login to access your Golobe account
         </p>
         <Field v-model="email" label="Email" class="login-field" />
-        <Field v-model="password" label="Password" class="login-field" />
+        <Field type="password" v-model="password" label="Password" class="login-field" />
       </div>
       <div class="remember">
         <Checkbox v-model="remember" label="Remember me" value="remember"/>
