@@ -13,6 +13,7 @@
   font-weight: 500;
   font-size: 14px;
   color: var(--blackish-green);
+  padding-top: 2px;
 
   input {
     position: absolute;
@@ -30,7 +31,9 @@
     width: 24px;
     border-radius: 4px;
     background-color: transparent;
-    border: 1px solid #112211;
+    border: 3px solid #112211;
+    transition: .3s all ease;
+
     &:after {
       content: "";
       position: absolute;
@@ -46,14 +49,12 @@
   }
 
   .checkmark:after {
-      left: 8px;
-      top: 1px;
-      width: 7px;
-      height: 15px;
-      border: solid white;
-      border-width: 0 2px 2px 0;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-    }
+    left: 6px;
+    top: 1px;
+    width: 6px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
 }

@@ -1,0 +1,12 @@
+.auth {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  &-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 104px;
+
+
+  }
+}

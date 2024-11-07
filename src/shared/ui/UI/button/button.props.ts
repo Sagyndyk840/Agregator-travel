@@ -5,7 +5,7 @@ export default interface ButtonProps {
     label: string,
     size: BtnSize,
     outlined: boolean,
-    color:  string,
+    color: string,
     textColor: string,
     block: boolean,
     disabled: boolean,
@@ -17,6 +17,7 @@ export default interface ButtonProps {
     to?: object,
     width?: string,
     flat: boolean,
+    align: 'center' | 'start' | 'end'
 }
 
 type BtnType =

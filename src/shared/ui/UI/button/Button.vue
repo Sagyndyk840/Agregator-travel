@@ -39,6 +39,7 @@ const click = (): void => {
           !props.icon ? `btn-size-${props.size}` : `icon-${props.size}`,
           props.block ? "block" : "",
           props.disabled ? `disabled-${props.outlined ? "outlined" : "filled"}` : "",
+          props.align ? `justify-${props.align}` : "",
           {
             "outlined": props.outlined,
             "flat": props.flat,
