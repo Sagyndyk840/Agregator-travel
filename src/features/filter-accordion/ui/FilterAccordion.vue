@@ -18,13 +18,18 @@ const toggle = () => {
 
 <template>
   <div class="filter-accordion">
-    <div class="filter-accordion__header">
+    <div class="filter-accordion__header" @click="toggle">
       <div class="filter-accordion__header--title">{{ props.title }}</div>
-      <div class="filter-accordion__header--btn" @click="toggle"></div>
+      <div class="filter-accordion__header--btn"
+        :class="{ 'active': showHide }"
+      ></div>
     </div>
-    <div class="filter-accordion__body">
-      <slot></slot>
-    </div>
+    <transition>
+      <div class="filter-accordion__body" v-if="showHide">
+        <slot>
+        </slot>
+      </div>
+    </transition>
   </div>
 </template>
 

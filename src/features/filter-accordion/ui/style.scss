@@ -1,0 +1,27 @@
+.filter-accordion {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &--title {
+      font-family: var(--font-family), sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--blackish-green);
+    }
+
+    &--btn {
+      background-image: url('data:image/svg+xml,<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.75 7.5L8 0.75L1.25 7.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>');
+      height: 7px;
+      width: 14px;
+      background-repeat: no-repeat;
+      transition: .3s all ease;
+
+      &.active {
+       transform: rotate(180deg);
+      }
+    }
+  }
+}
