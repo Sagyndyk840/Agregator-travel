@@ -14,7 +14,7 @@ const sliderMax = ref(150);
 </script>
 
 <template>
-  <div style="width: 500px; margin-left: 20px">
+  <div style="width: 500px; margin-left: 20px; margin-top: 50px">
     <RangeSlider
         :min="0"
         :max="2000"

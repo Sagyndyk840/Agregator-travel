@@ -2,7 +2,7 @@
 import { type Ref, ref, watchEffect } from 'vue'
 import type RangeSliderProps from '@/shared/ui/UI/range-slider/range-slider.props';
 
-const { min, max, step, minValue, maxValue } = withDefaults(defineProps<RangeSliderProps>(), {
+const props = withDefaults(defineProps<RangeSliderProps>(), {
   min: 0,
   max: 100,
   step: 1,
@@ -15,8 +15,8 @@ const emit = defineEmits(['update:minValue', 'update:maxValue'])
 const slider = ref(null)
 const inputMin = ref(null)
 const inputMax = ref(null)
-const sliderMinValue: Ref<number> = ref(minValue)
-const sliderMaxValue: Ref<number> = ref(maxValue)
+const sliderMinValue: Ref<number> = ref(props.minValue)
+const sliderMaxValue: Ref<number> = ref(props.maxValue)
 
 const getPercent = (value: number, min: number, max: number) => {
   return ((value - min) / (max - min)) * 100
@@ -32,8 +32,8 @@ watchEffect(() => {
     emit('update:minValue', sliderMinValue.value)
     emit('update:maxValue', sliderMaxValue.value)
 
-    const leftPercent = getPercent(sliderMinValue.value, min, max)
-    const rightPercent = 100 - getPercent(sliderMaxValue.value, min, max)
+    const leftPercent = getPercent(sliderMinValue.value, props.min, props.max)
+    const rightPercent = 100 - getPercent(sliderMaxValue.value, props.min, props.max)
 
     setCSSProps(leftPercent, rightPercent)
   }
@@ -81,8 +81,8 @@ const onInput = ({ target }) => {
     />
   </div>
   <div class="minmax-inputs">
-    <input type="number" :step="step" v-model="sliderMinValue" />
-    <input type="number" :step="step" v-model="sliderMaxValue" />
+    <div class="min count">{{ sliderMinValue }}</div>
+    <div class="max count">{{ sliderMaxValue }}</div>
   </div>
 </template>
 
