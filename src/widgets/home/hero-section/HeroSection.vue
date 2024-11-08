@@ -15,8 +15,8 @@ import heroSectionImage from '@/shared/assets/images/hero-section.png'
           <Logo />
         </div>
         <div class="hero-section__top--auth">
-          <Button flat  text-color="white" label="Login"/>
-          <Button color="white" text-color="#121" label="Sign up"/>
+          <Button flat  text-color="white" label="Login" :to="{name: 'LoginPage'}"/>
+          <Button color="white" text-color="#121" label="Sign up" :to="{name: 'LoginPage'}"/>
         </div>
       </div>
       <div class="hero-section__wrapper">
