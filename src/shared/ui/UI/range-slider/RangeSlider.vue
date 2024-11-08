@@ -12,17 +12,17 @@ const props = withDefaults(defineProps<RangeSliderProps>(), {
 
 const emit = defineEmits(['update:minValue', 'update:maxValue'])
 
-const slider = ref(null)
-const inputMin = ref(null)
-const inputMax = ref(null)
+const slider: Ref<HTMLDivElement | null> = ref(null)
+const inputMin: Ref<HTMLInputElement | null> = ref(null)
+const inputMax: Ref<HTMLInputElement | null> = ref(null)
 const sliderMinValue: Ref<number> = ref(props.minValue)
 const sliderMaxValue: Ref<number> = ref(props.maxValue)
 
-const getPercent = (value: number, min: number, max: number) => {
+const getPercent = (value: number, min: number, max: number): number => {
   return ((value - min) / (max - min)) * 100
 }
 
-const setCSSProps = (left: number, right: number) => {
+const setCSSProps = (left: number, right: number): void => {
   slider.value.style.setProperty('--progressLeft', `${left}%`)
   slider.value.style.setProperty('--progressRight', `${right}%`)
 }
@@ -39,17 +39,14 @@ watchEffect(() => {
   }
 })
 
-const onInput = ({ target }) => {
+const onInput = (event: Event): void => {
+  const target = event.target as HTMLInputElement
   if (target.name === 'min') {
-    target.value > sliderMaxValue.value
-        ? target.value = sliderMaxValue.value
-        : sliderMinValue.value = parseFloat(target.value)
-  }
-
-  if (target.name === 'max') {
-    target.value < sliderMinValue.value
-        ? target.value = sliderMinValue.value
-        : sliderMaxValue.value = parseFloat(target.value)
+    target.value = String(Math.min(parseFloat(target.value), sliderMaxValue.value))
+    sliderMinValue.value = parseFloat(target.value)
+  } else if (target.name === 'max') {
+    target.value = String(Math.max(parseFloat(target.value), sliderMinValue.value))
+    sliderMaxValue.value = parseFloat(target.value)
   }
 }
 
