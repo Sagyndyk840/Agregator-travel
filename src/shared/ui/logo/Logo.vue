@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import LogoDark from '@/shared/assets/images/logo-dark.png';
 import LogoLight from '@/shared/assets/images/logo-light.png';
-
-
 import { computed } from 'vue'
 
 const props = withDefaults(defineProps<{
   alt: string,
-  to: object | string,
+  to: any,
   type: 'dark' | 'light'
 
 }>(), {
   type: 'light',
   alt: 'logo',
-  to: 'HomePage'
+  to: { name: 'HomePage' }
 })
 
 const logoSrc = computed(() => {
