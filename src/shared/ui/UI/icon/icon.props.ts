@@ -5,6 +5,7 @@ const icons: string[] = [
   'back-chevron',
   'next-chevron',
   'select-down',
+  'heart'
 ] as const
 
 type Icons = typeof icons[number]

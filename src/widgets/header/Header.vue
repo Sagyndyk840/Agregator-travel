@@ -1,29 +1,36 @@
 <script setup lang="ts">
 
 import Logo from '@/shared/ui/logo'
-import Button from '@/shared/ui/UI/button'
+import Icon from '@/shared/ui/UI/icon'
+import HeaderAuthORGuest from '@/features/header-auth-or-guest'
 </script>
 
 <template>
   <header class="header">
     <div class="container">
       <div class="header-inner">
-        <nav>
+        <nav class="header-nav">
           <ul>
             <li>
-              <router-link to=""></router-link>
+              <router-link class="header-nav__link" to="">
+                <Icon icon="plane" type="filled" :size="24" />
+                <span>
+                  Find Flight
+                </span>
+              </router-link>
             </li>
             <li>
-              <router-link to=""></router-link>
+              <router-link class="header-nav__link" to="">
+                <Icon icon="bed" type="filled" :size="24" />
+                <span>
+                  Find Stays
+                </span>
+              </router-link>
             </li>
           </ul>
-          <Logo type="dark" />
-
-          <div class="header-top__auth">
-            <Button flat  text-color="white" label="Login" :to="{name: 'LoginPage'}"/>
-            <Button color="white" text-color="#121" label="Sign up" :to="{name: 'LoginPage'}"/>
-          </div>
         </nav>
+        <Logo type="dark" />
+        <HeaderAuthORGuest type="light" />
       </div>
     </div>
   </header>

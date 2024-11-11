@@ -1,0 +1,43 @@
+.header-top__guest {
+  display: flex;
+}
+
+.header-top__auth {
+  display: flex;
+  align-items: center;
+  .favorites {
+    margin-right: 32px;
+    a {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 4px;
+        font-family: var(--font-family), sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--blackish-green);
+      }
+    }
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 100%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-family: var(--font-family), sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--blackish-green);
+      margin-left: 4px;
+    }
+  }
+}

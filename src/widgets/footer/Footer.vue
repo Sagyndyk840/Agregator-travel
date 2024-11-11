@@ -9,7 +9,9 @@ import SubscribeForm from '@/features/subscribe-form'
       <div class="container">
         <div class="footer-inner">
           <div class="footer-column">
-            <img src="@/shared/assets/images/logo-dark.png" alt="" class="footer-column__logo">
+            <router-link :to="{name: 'HomePage'}">
+              <img src="@/shared/assets/images/logo-footer.png" alt="" class="footer-column__logo">
+            </router-link>
             <ul class="footer-column__social">
               <li>
                 <a href="">
