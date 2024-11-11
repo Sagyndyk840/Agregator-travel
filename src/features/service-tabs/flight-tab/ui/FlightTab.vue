@@ -5,13 +5,7 @@ import { reactive, ref } from 'vue'
 import Select from '@/shared/ui/UI/select/Select.vue'
 import DatePicker from '@/shared/ui/UI/date-picker'
 import Button from '@/shared/ui/UI/button'
-
-interface FlightData {
-  from: string
-  to: string
-  trip: string
-  departReturn: string
-}
+import type { FlightData } from '@/shared/lib/utility-types/flight-data'
 
 let flightData: FlightData = reactive({
   from: '',
