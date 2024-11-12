@@ -1,14 +1,16 @@
 <script setup lang="ts">
 
-import { type Ref, ref } from 'vue'
+import {  type Ref, ref } from 'vue'
 
 const props = withDefaults(defineProps<{
   title: string,
+  show: boolean
 }>(), {
-  title: 'Title'
+  title: 'Title',
+  show: false
 })
 
-const showHide: Ref<boolean> = ref(false)
+const showHide: Ref<boolean> = ref(props.show)
 
 const toggle = () => {
   showHide.value = !showHide.value

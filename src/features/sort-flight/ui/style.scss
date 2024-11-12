@@ -1,0 +1,48 @@
+.sort-flight {
+  border-radius: 12px;
+  padding: 16px 24px;
+  box-shadow: 0 4px 16px 0 rgba(17, 34, 17, 0.05);
+  background: var(--neutrals);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -14%;
+      width: 48px;
+      height: 0;
+      border: 1px solid #d7e2ee;
+      transform: rotate(-90deg) ;
+      //transform: translate(-50%, -50%);
+    }
+    
+    &:last-child::before {
+      display: none;
+    }
+    .title {
+      margin-bottom: 8px;
+      font-family: var(--font-family), sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--blackish-green);
+    }
+    .price-and-time {
+      font-family: var(--font-family), sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--blackish-green);
+      opacity: .4;
+
+    }
+  }
+}

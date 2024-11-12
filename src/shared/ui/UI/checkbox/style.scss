@@ -31,7 +31,7 @@
     width: 24px;
     border-radius: 4px;
     background-color: transparent;
-    border: 3px solid #112211;
+    border: 2px solid #112211;
     transition: .3s all ease;
 
     &:after {
@@ -49,9 +49,9 @@
   }
 
   .checkmark:after {
-    left: 6px;
-    top: 1px;
-    width: 6px;
+    left: 7px;
+    top: 2px;
+    width: 7px;
     height: 13px;
     border: solid white;
     border-width: 0 2px 2px 0;

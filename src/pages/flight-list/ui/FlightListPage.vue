@@ -3,7 +3,8 @@
 import Header from '@/widgets/header'
 import Footer from '@/widgets/footer'
 import FlightListFind from '@/features/flight-list-find'
-import Filter from '@/features/filter'
+import FilterFlight from '@/features/filter-flight'
+import SortFlight from '@/features/sort-flight'
 </script>
 
 <template>
@@ -14,10 +15,10 @@ import Filter from '@/features/filter'
 
       <div class="flight-wrapper">
         <div class="flight-sidebar">
-          <Filter />
+          <FilterFlight />
         </div>
         <div class="flight-content">
-          <h1></h1>
+          <SortFlight />
         </div>
       </div>
 
@@ -26,6 +27,6 @@ import Filter from '@/features/filter'
   <Footer />
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+@import "style";
 </style>
