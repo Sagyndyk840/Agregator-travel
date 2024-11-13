@@ -1,0 +1,10 @@
+.flight-list {
+  &__top {
+    display: grid;
+    gap: 32px;
+
+  }
+  &__bottom {
+    margin-top: 24px;
+  }
+}

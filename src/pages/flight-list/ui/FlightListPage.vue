@@ -5,6 +5,7 @@ import Footer from '@/widgets/footer'
 import FlightListFind from '@/features/flight-list-find'
 import FilterFlight from '@/features/filter-flight'
 import SortFlight from '@/features/sort-flight'
+import FlightList from '@/widgets/flight-list'
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import SortFlight from '@/features/sort-flight'
         </div>
         <div class="flight-content">
           <SortFlight />
+          <FlightList />
         </div>
       </div>
 

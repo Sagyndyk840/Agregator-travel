@@ -36,7 +36,7 @@ const click = (): void => {
         class="btn"
         :class='[
           props.to ? "display-inline-block" : "flex",
-          !props.icon ? `btn-size-${props.size}` : `icon-${props.size}`,
+          !props.icon ? `btn-size-${props.size}` : `btn-icon-${props.size}`,
           props.block ? "block" : "",
           props.disabled ? `disabled-${props.outlined ? "outlined" : "filled"}` : "",
           props.align ? `justify-${props.align}` : "",
