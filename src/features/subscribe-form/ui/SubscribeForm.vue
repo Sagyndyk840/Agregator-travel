@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Button from '@/shared/ui/UI/button'
 </script>
 
 <template>
@@ -10,6 +11,10 @@
       <div class="subscribe-left__bottom">
         <div class="subscribe-left__bottom--title">The Travel</div>
         <div class="subscribe-left__bottom--description">Get inspired! Receive travel discounts, tips and behind the scenes stories.</div>
+      </div>
+      <div class="subscribe-form">
+        <input placeholder="Your email address"/>
+        <Button label="Subscribe" color="#121" text-color="#fff" size="large" />
       </div>
     </div>
     <div class="subscribe-right">

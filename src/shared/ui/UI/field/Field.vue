@@ -68,7 +68,6 @@ const handleFocus = (): void => {
   emit('focus')
 }
 
-
 </script>
 
 <template>
