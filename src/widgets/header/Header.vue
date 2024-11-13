@@ -12,7 +12,7 @@ import HeaderAuthORGuest from '@/features/header-auth-or-guest'
         <nav class="header-nav">
           <ul>
             <li>
-              <router-link class="header-nav__link" to="">
+              <router-link class="header-nav__link" :to="{name: 'FlightList'}">
                 <Icon icon="plane" type="filled" :size="24" />
                 <span>
                   Find Flight
@@ -20,7 +20,7 @@ import HeaderAuthORGuest from '@/features/header-auth-or-guest'
               </router-link>
             </li>
             <li>
-              <router-link class="header-nav__link" to="">
+              <router-link class="header-nav__link" :to="{name: 'FlightDetail', params: {id: 1}}">
                 <Icon icon="bed" type="filled" :size="24" />
                 <span>
                   Find Stays
