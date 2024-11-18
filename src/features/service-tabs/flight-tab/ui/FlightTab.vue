@@ -22,13 +22,14 @@ let trips = ref([
 
 <template>
   <div class="flight-tabs">
-    {{flightData.trip}}
-    <br>
     <div class="flight-tabs__top">
-      <Field v-model="flightData.from" label="From" />
-      <Field v-model="flightData.to" label="To" />
+      <Select :options="trips" v-model="flightData.from"  label="From"  filter />
+      <Select :options="trips" v-model="flightData.to"  label="To" filter  />
 
-      <Select :options="trips" v-model="flightData.trip"  label="Trip" filter />
+<!--      <Field v-model="flightData.from" label="From"  />-->
+<!--      <Field v-model="flightData.to" label="To" />-->
+
+      <Select :options="trips" v-model="flightData.trip"  label="Trip"  />
       <Select :options="trips" v-model="flightData.trip" label="Trip"  />
       <DatePicker v-model="flightData.departReturn" label="Depart-Return" />
     </div>
