@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import type { UISelectProps, OptionType } from '@/shared/ui/UI/select/select.props'
+import type { UISelectProps } from '@/shared/ui/UI/select/select.props'
 import { computed, type Ref, ref } from 'vue'
 import Field from '@/shared/ui/UI/field'
 import type UIFieldProps from '@/shared/ui/UI/field/field.props'
@@ -34,14 +34,38 @@ const props = withDefaults(defineProps<SelectProps>(), {
     ]
   },
   optionValue: 'id',
-  optionLabel: 'value'
+  optionLabel: 'value',
+  filter: false,
 })
 
 let dropDownShowOrHide: Ref<boolean> = ref(false)
 
-const onFocus = (): boolean => dropDownShowOrHide.value = true
+const filteredOptions = computed(() => {
+  if (!props.filter) {
+    return props.options
+  }
+  const search = model.value?.toLowerCase() || ''
 
-const onBlur = (): boolean => dropDownShowOrHide.value = false
+  return props.options.filter(option =>
+    option.value.toLowerCase().includes(search)
+  )
+})
+
+const onInput = () => {
+  if (props.filter) {
+    dropDownShowOrHide.value = filteredOptions.value.length > 0
+  } else {
+    dropDownShowOrHide.value = true
+  }
+}
+
+const onFocus = () => {
+  dropDownShowOrHide.value = !props.filter
+}
+
+const onBlur = () => {
+  dropDownShowOrHide.value = false
+}
 
 let selectedId = ref()
 
@@ -50,7 +74,7 @@ const emit = defineEmits(['update:modelValue'])
 const selectOption = (option: any) => {
   model.value = option
   selectedId.value = option.id
-  emit('update:modelValue', option)
+  emit('update:modelValue', option.value)
   dropDownShowOrHide.value = false
 }
 
@@ -59,7 +83,7 @@ const selectOption = (option: any) => {
 <template>
   <div class="select">
     <div class="select-container">
-      <Field v-bind="props" @focus="onFocus" @blur="onBlur" v-model="model.value" >
+      <Field v-bind="props"  v-model="model"  @focus="onFocus" @blur="onBlur" @input="onInput" :readonly="!filter" >
         <template #icon-right >
           <Icon :size="25" icon="select-down" type="general" class="select-icon__right"/>
         </template>
@@ -68,7 +92,7 @@ const selectOption = (option: any) => {
     <transition>
       <ul class="select-dropdown" v-if="dropDownShowOrHide">
         <li
-          v-for="option in props.options"
+          v-for="option in filteredOptions"
           :key="option.id"
           :class="{ 'active': selectedId === option.id }"
           @click="selectOption(option)"

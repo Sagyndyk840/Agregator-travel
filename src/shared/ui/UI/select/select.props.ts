@@ -15,6 +15,8 @@ export interface UISelectProps {
     options: OptionType[],
     optionValue: string,
     optionLabel: string,
+    filter: boolean,
+    modelValue: any,
     // value: string,
     // error: boolean, // success
 }

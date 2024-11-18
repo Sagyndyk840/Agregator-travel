@@ -25,7 +25,7 @@ let trips = ref([
   <div class="flight-list-find">
     <Field v-model="flightData.from" label="From" />
     <Field v-model="flightData.to" label="To" />
-    <Select :options="trips" v-model="flightData.trip" label="Trip" />
+    <Select :options="trips" v-model="flightData.trip"  label="Trip" filter />
     <DatePicker v-model="flightData.departReturn" label="Depart-Return" />
     <Button icon="search" class="button" align="center">
       <template #icon>

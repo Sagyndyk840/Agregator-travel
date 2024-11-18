@@ -26,6 +26,7 @@ const props = withDefaults(defineProps<UIFieldProps>(), {
   prefix: '',
   loading: false,
   clear: false,
+  readonly: false,
 })
 
 const fieldName = computed((): string => props.name !== ' ' ? props.name : generateUniqueName())
@@ -105,6 +106,7 @@ const handleFocus = (): void => {
         :id="fieldName"
         :placeholder="props.filled ? props.label : ' '"
         :type="props.type"
+        :readonly="props.readonly"
       />
       <label
         :style="[

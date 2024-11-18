@@ -19,6 +19,7 @@ export default interface UIFieldProps {
     hint?: string,
     rules?: Array<(value: string) => boolean | string>,
     clear?: boolean,
+    readonly?: boolean
     // Process
 
     // Password
