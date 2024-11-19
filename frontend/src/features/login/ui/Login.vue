@@ -1,14 +1,28 @@
 <script setup lang="ts">
-
 import Logo from '@/shared/ui/logo'
 import Field from '@/shared/ui/UI/field'
 import { type Ref, ref } from 'vue'
 import Checkbox from '@/shared/ui/UI/checkbox'
 import Button from '@/shared/ui/UI/button'
+import { AuthApi } from '@/enteties/auth'
+import type { ILoginData } from '@/enteties/auth/model'
 
-let email: Ref<string> = ref('')
-let password: Ref<string> = ref('')
+let email: Ref<string> = ref('user@gmail.com')
+let password: Ref<string> = ref('Aa123123')
 let remember: Ref<boolean> = ref(false)
+
+const login = async () => {
+  try {
+    const response = await AuthApi.login({
+      email: email.value,
+      password: password.value,
+    } as ILoginData)
+
+    console.log(response)
+  } catch (error) {
+    console.error('Error logging in:', error)
+  }
+}
 
 </script>
 
@@ -30,7 +44,7 @@ let remember: Ref<boolean> = ref(false)
         <Checkbox v-model="remember" label="Remember me" value="remember"/>
 <!--        <router-link to="" class="forgot-password">Forgot Password</router-link>-->
       </div>
-      <Button block label="Login" align="center" size="medium" />
+      <Button @click="login" block label="Login" align="center" size="medium" />
       <div class="or-login">
         Or login with
       </div>

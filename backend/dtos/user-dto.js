@@ -1,11 +1,11 @@
 export default class UserDto {
   email
   id
-  firstname
+  name
   lastname
 
   constructor(model) {
-    this.firstname = model.firstname
+    this.name = model.name
     this.lastname = model.lastname
     this.email = model.email
     this.id = model._id
