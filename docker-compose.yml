@@ -5,14 +5,12 @@ services:
     build:
       context: ./backend
     ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}" # Используем порт из .env
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
     volumes:
       - ./backend:/app
       - /app/node_modules
     env_file:
-      - ./backend/.env # Подключаем файл .env для backend
-    environment:
-      - NODE_ENV=development
+      - ./backend/.env
   frontend:
     build:
       context: ./frontend

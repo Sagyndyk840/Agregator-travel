@@ -1,15 +1,17 @@
-// export const BACKEND_API_DEV_URL = getEnv('BACKEND_API_DEV_URL')
-// export const BACKEND_API_PROD_URL = getEnv('BACKEND_API_PROD_URL')
-//
-// export const isProdEnv = getEnv('PROD')
+export const VITE_BACKEND_API_DEV_URL = getEnv('VITE_BACKEND_API_DEV_URL')
+export const VITE_BACKEND_API_PROD_URL = getEnv('VITE_BACKEND_API_PROD_URL')
+export const VITE_SCY_SCANNER_TOKEN = getEnv('VITE_SCY_SCANNER_TOKEN')
+export const VITE_SCY_SCANNER_URL = getEnv('VITE_SCY_SCANNER_URL')
 
-// export const BASE_URL = isProdEnv ? BACKEND_API_PROD_URL : BACKEND_API_DEV_URL
-export const BASE_URL: string = 'http://localhost:20000'
+export const isProdEnv = getEnv('VITE_PROD')
 
-// function getEnv(key: string) {
-//   const envVar = import.meta.env[key]
-//   if (envVar === undefined) {
-//     throw new Error(`Env variable ${key} is required`)
-//   }
-//   return envVar
-// }
+export const BASE_URL = isProdEnv ? VITE_BACKEND_API_PROD_URL : VITE_BACKEND_API_DEV_URL
+
+function getEnv(key: string) {
+  console.log(import.meta.env)
+  const envVar = import.meta.env[key]
+  if (envVar === undefined) {
+    throw new Error(`Env variable ${key} is required`)
+  }
+  return envVar
+}

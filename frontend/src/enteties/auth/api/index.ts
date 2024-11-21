@@ -1,4 +1,4 @@
-import { post } from '@/shared/api'
+import { BaseApi } from '@/shared/api'
 // import { type IAuthResponse, type ILoginData } from '@/enteties/auth/model/types'
 import { type IAuthResponse, type ILoginData } from '@/enteties/auth/model'
 
@@ -10,7 +10,7 @@ export const api = {
 
 async function login (data: ILoginData) {
   try {
-    return await post<IAuthResponse>('/api/login', data)
+    return await BaseApi.post<IAuthResponse>('/api/login', data)
   } catch (error) {
     console.log(error)
   }

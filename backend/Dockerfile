@@ -10,9 +10,9 @@ RUN npm install
 
 COPY . .
 
-ARG NODE_ENV=production
+ARG NODE_ENV=4000
 ENV NODE_ENV=$NODE_ENV
 
-EXPOSE 4000
+EXPOSE ${NODE_ENV}
 
 CMD ["npm", "run", "dev"]

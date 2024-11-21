@@ -1,9 +1,12 @@
 import { defineStore } from 'pinia'
-import { api } from '../api'
 
 const NAMESPACE = 'auth'
 
-export const useAuthStore = defineStore(NAMESPACE, () => {
+interface IAuthStore {
+  setToken: (accessToken: string, refreshToken: string) => void
+}
+
+export const useAuthStore = defineStore(NAMESPACE, (): IAuthStore => {
 
   function setToken (accessToken: string, refreshToken: string) {
     localStorage.setItem('accessToken', accessToken)
